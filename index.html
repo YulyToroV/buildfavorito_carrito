@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Selección de Productos</title>
+
+    <style>
+        .product {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .selected {
+            background-color: #f0f8ff;
+        }
+        .product-label {
+            margin-top: 10px;
+        }
+        .product img {
+            margin-bottom: 10px;
+            height: 100px;
+        }
+        .icons {
+            display: flex;
+            gap: 10px;
+        }
+        .icon {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            fill: black;
+        }
+    </style>
+
+
+<style>
+    /* Estilos para los botones */
+    .icon-button {
+        font-size: 24px;
+        padding: 10px 20px;
+        border: none;
+        background-color: #f0f0f0;
+        cursor: pointer;
+        margin: 10px;
+        border-radius: 5px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        text-decoration: none;
+        color: #333;
+        width: 200px; /* Ajusta el ancho según sea necesario */
+    }
+    .icon-button i {
+        margin-left: 8px;
+    }
+    .icon-button:hover {
+        background-color: #e0e0e0;
+    }
+</style>
+
+</head>
+<body>
+
+<!-- Botón de Favorito -->
+<a href="favoritocarrito.html" class="icon-button">
+    <i class="fas fa-heart"></i> Favoritos
+</a>
+
+<!-- Botón de Carrito -->
+<a href="favoritocarrito.html" class="icon-button">
+    <i class="fas fa-shopping-cart"></i> Carrito
+</a>
+
+
+<!-- tabla de producto  de bella y vale -->
+
+    <h1>Tabla de Productos</h1>
+
+
+
+    <div class="buttons">
+        <button id="selectAll">Seleccionar Todos</button>
+        <button id="deselectAll">Deseleccionar Todos</button>
+    </div>
+
+
+
+    <div id="productList">
+        <div class="product" data-product-id="1">
+            <input type="checkbox" class="product-checkbox">
+            <img src="imagen/cartered.png" alt="Producto 1" class="product-image">
+            <div class="icons">
+                <svg class="icon favorite" data-action="favorite1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                <svg class="icon cart" data-action="cart1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm0-2c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm10 2c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2S19 21.1 19 20s-.9-2-2-2zm-6.83-2L8.12 7.06C7.9 6.42 7.34 6 6.7 6H4V4h2.29c1.2 0 2.3.72 2.74 1.81l4.03 9.25 3.53-7.05H22v2h-2.38L13.17 16H7.07l-1.1-2.5H2v-2h3.44l3.27 7.5h7.05z"/></svg>
+            </div>
+            <label class="product-label" for="product-1">cartera red</label>
+        </div>
+
+
+
+        
+        <!-- Repite la misma estructura para los demás productos -->
+
+        <div class="product" data-product-id="2">
+            <input type="checkbox" class="product-checkbox">
+            <img src="imagen/bolsorosa.png" alt="Producto 2" class="product-image">
+            <div class="icons">
+                <svg class="icon favorite" data-action="favorite2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                <svg class="icon cart" data-action="cart2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm0-2c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm10 2c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2S19 21.1 19 20s-.9-2-2-2zm-6.83-2L8.12 7.06C7.9 6.42 7.34 6 6.7 6H4V4h2.29c1.2 0 2.3.72 2.74 1.81l4.03 9.25 3.53-7.05H22v2h-2.38L13.17 16H7.07l-1.1-2.5H2v-2h3.44l3.27 7.5h7.05z"/></svg>
+            </div>
+            <label class="product-label" for="product-2">cartera red</label>
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+
+    <script>
+        document.getElementById('selectAll').addEventListener('click', function() {
+            var checkboxes = document.querySelectorAll('.product-checkbox');
+            checkboxes.forEach(function(checkbox) {
+                checkbox.checked = true;
+                saveToFavorites(checkbox.closest('.product'));
+            });
+        });
+
+        document.getElementById('deselectAll').addEventListener('click', function() {
+            var checkboxes = document.querySelectorAll('.product-checkbox');
+            checkboxes.forEach(function(checkbox) {
+                checkbox.checked = false;
+                removeFromFavorites(checkbox.closest('.product').getAttribute('data-product-id'));
+            });
+        });
+
+        document.querySelectorAll('.product-checkbox').forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                if (checkbox.checked) {
+                    saveToFavorites(checkbox.closest('.product'));
+                } else {
+                    removeFromFavorites(checkbox.closest('.product').getAttribute('data-product-id'));
+                }
+            });
+        });
+
+        document.querySelectorAll('.icon.favorite').forEach(function(icon) {
+            icon.addEventListener('click', function() {
+                var product = icon.closest('.product');
+                saveToFavorites(product);
+            });
+        });
+
+        function saveToFavorites(product) {
+            var productId = product.getAttribute('data-product-id');
+            var productName = product.querySelector('.product-label').textContent;
+            var productImage = product.querySelector('.product-image').src;
+            var favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            if (!favorites.some(fav => fav.id == productId)) {
+                favorites.push({ id: productId, name: productName, image: productImage });
+                localStorage.setItem('favorites', JSON.stringify(favorites));
+            }
+            alert('Producto agregado a favoritos');
+        }
+
+        function removeFromFavorites(productId) {
+            var favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            favorites = favorites.filter(fav => fav.id != productId);
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+        }
+    </script>
+</body>
+</html>
