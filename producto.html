@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="css/producto.css">
+    <title>Producto</title>
+</head>
+<body>
+    <header>
+        <div>
+            <a href="index.html">
+                <img class="logo" src="imagen2/Logo ByVcarlos.png" width="100" height="100" alt="Logo Bella y Vale">
+            </a>
+        </div>
+        <h1 class="titulo">PRODUCTOS</h1>
+        
+        <nav class="button-container">
+            <a href="favorite.html" class="icon-button" id="favoritesButton">
+                <i class="fas fa-heart"></i> Favoritos
+            </a>
+            <a href="comprar.html" class="icon-button" id="cartButton">
+                <i class="fas fa-shopping-cart"></i> Carrito
+            </a>
+        </nav>
+    </header>
+
+    <main class="product-container" id="productContainer">
+        <!-- Primer producto -->
+        <div class="product-item" data-product-id="1">
+            <div class="product-left">
+                <input type="checkbox" class="favorite-checkbox" data-product-id="1" data-product-name="Bolso Tauro" data-product-image="imagen2/bolsolindo.jpg">
+            </div>
+            <div class="imagen-con-hover">
+                <img src="imagen2/bolsolindo.jpg" alt="Bolso Tauro">
+                <div class="overlay">
+                    <div class="content">
+
+                        <h2>Bolso Tauro</h2>
+                        <h3>$ 170.000</h3>
+                        <p>Compartimiento interno<br>Broche de seguridad<br>Doble uso<br>20 ancho x 15 alto</p>
+                    
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="button-containercart">
+                <button class="icon-button add-to-cart-button" data-product-id="1">
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                </button>
+            </div>
+        </div>
+
+        <!-- Segundo producto -->
+        <div class="product-item" data-product-id="3">
+            <div class="product-left">
+                <input type="checkbox" class="favorite-checkbox" data-product-id="3" data-product-name="Combo especial ByV" data-product-image="imagen2/marroqui2.jpg">
+            </div>
+            <div class="imagen-con-hover">
+                <img src="imagen2/marroqui2.jpg" alt="Combo especial ByV">
+                <div class="overlay">
+
+                    <div class="content">
+
+                        <h2>Combo especial ByV</h2>
+                        <h3>$ 320.000</h3>
+                        <p><p>
+                            Combínalo como tu quieras
+                        </p><br><br><br></p>
+                    
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="button-containercart">
+                <button class="icon-button add-to-cart-button" data-product-id="2">
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                </button>
+            </div>
+        </div>
+
+        <!-- tercer producto -->
+        <div class="product-item" data-product-id="3">
+            <div class="product-left">
+                <input type="checkbox" class="favorite-checkbox" data-product-id="3" data-product-name="Riñonera Jacobs" data-product-image="imagen2/imagen4.jpeg">
+            </div>
+            <div class="imagen-con-hover">
+                <img src="imagen2/imagen4.jpeg" alt="Riñonera Jacobs">
+                <div class="overlay">
+                    <div class="content">
+                        <h2>Riñonera Jacobs</h2>
+                        <h3>$ 90.000</h3>
+                        <p>Doble compartimiento interno<br>Riata<br>cadena de lujo<br>25 ancho x 16 alto</p>
+                    </div>
+                </div>
+            </div>
+            <div class="button-containercart">
+                <button class="icon-button add-to-cart-button" data-product-id="3">
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                </button>
+            </div>
+        </div>
+
+        <!-- cuarto producto -->
+        <div class="product-item" data-product-id="4">
+            <div class="product-left">
+                <input type="checkbox" class="favorite-checkbox" data-product-id="4" data-product-name="correas" data-product-image="imagen2/correas.jpg">
+            </div>
+            <div class="imagen-con-hover">
+                <img src="imagen2/Correas.jpg" alt="correas">
+                <div class="overlay">
+                    <div class="content">
+                        <h2>correas</h2>
+                        <h3>$ 90.000</h3>
+                        <p>Doble compartimiento interno<br>Riata<br>cadena de lujo<br>25 ancho x 16 alto</p>
+                    </div>
+                </div>
+            </div>
+            <div class="button-containercart">
+                <button class="icon-button add-to-cart-button" data-product-id="4">
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="funsion.js/producto.js"></script>
+    <script src="producto.js"></script>
+    <script src="comprar.js"></script>
+
+
+
+
+
+</body>
+</html>

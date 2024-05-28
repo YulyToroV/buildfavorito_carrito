@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/favorite.css">
+    <title>Lista de Favoritos</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Favoritos</h1>
+        <div id="favoritesContainer"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const favoritesContainer = document.getElementById('favoritesContainer');
+            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+            // Función para renderizar la lista de favoritos
+            function renderFavorites() {
+                favoritesContainer.innerHTML = '';
+                if (favorites.length === 0) {
+                    favoritesContainer.innerHTML = '<p>No hay productos en la lista de favoritos.</p>';
+                } else {
+                    favorites.forEach((product, index) => {
+                        favoritesContainer.appendChild(createProductElement(product, index));
+                    });
+                }
+            }
+
+            // Función para crear el elemento HTML de un producto
+            function createProductElement(product, index) {
+                const productElement = document.createElement('div');
+                productElement.className = 'product';
+                productElement.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <div>
+                        <h2>${product.name}</h2>
+                        <p>ID: ${product.id}</p>
+                    </div>
+                    <div class="remove-button" data-index="${index}">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                `;
+                return productElement;
+            }
+
+            // Eliminar producto de favoritos
+            function removeFromFavorites(index) {
+                favorites.splice(index, 1);
+                localStorage.setItem('favorites', JSON.stringify(favorites));
+                renderFavorites();
+            }
+
+            // Event listener para eliminar productos de la lista de favoritos
+            favoritesContainer.addEventListener('click', function (e) {
+                if (e.target.classList.contains('fa-trash-alt')) {
+                    const index = e.target.parentElement.getAttribute('data-index');
+                    removeFromFavorites(index);
+                }
+            });
+
+            // Renderizar la lista de favoritos al cargar la página
+            renderFavorites();
+        });
+    </script>
+    <script src="producto.js"></script>
+</body>
+</html>
