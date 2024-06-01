@@ -50,21 +50,33 @@ $(document).ready(function () {
     };
 });
 // Configuración para añadir al carrito de compras desde producto aun no conecta debido ala estrutictura html 
-document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', function() {
-        const productElement = this.closest('.producto');
-        const product = {
-            productId: this.dataset.productId,
-            productName: productElement.querySelector('.product-name').textContent,
-            productPrice: parseFloat(productElement.querySelector('.product-price').textContent.replace('Precio: $', '')),
-            productImage: productElement.querySelector('.product-image').src,
-            productDescription: productElement.querySelector('.product-description').textContent
-        };
+$(document).ready(function () {
+    $(".add-to-cart-button").click(function () {
+        const productId = $(this).data("product-id");
+        const productElement = $(this).closest(".product-item");
+        const productName = productElement.find("h2").text();
+        const productPrice = productElement.find("h3").text().replace('$', '');
+        const productImage = productElement.find("img").attr("src");
+        const productDescription = productElement.find("p").text();
 
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart.push(product);
-        localStorage.setItem('cart', JSON.stringify(cart));
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push({
+            productId,
+            productName,
+            productPrice,
+            productImage,
+            productDescription
+        });
 
-        alert('Producto añadido al carrito');
+        localStorage.setItem("cart", JSON.stringify(cart));
+        toastr.success('Producto añadido al carrito');
     });
 });
+
+// Verificar si el producto ya está en el carrito
+const existingProductIndex = cart.findIndex(item => item.productId === product.productId);
+if (existingProductIndex === -1) {
+    cart.push(product);
+} else {
+    alert('Este producto ya está en el carrito.');
+}
